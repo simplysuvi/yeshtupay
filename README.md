@@ -1,19 +1,33 @@
-# 🎈 Blank app template
+# Paycheck Estimator
 
-A simple Streamlit app template for you to modify!
+A simple Streamlit app to estimate your gross and net pay based on your visa status (F1 or H1B) and annual salary.
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+## Features
 
-### How to run it on your own machine
+- Choose between F1 (OPT/STEM) and H1B visa status
+- Enter your annual salary
+- View:
+  - Semi-monthly (biweekly) gross and net pay
+  - Monthly gross and net pay
+  - Annual gross and net pay
+- See detailed tax deductions per paycheck
 
-1. Install the requirements
+## Tax Assumptions
 
-   ```
-   $ pip install -r requirements.txt
-   ```
+This app uses higher-end estimates for deduction percentages:
 
-2. Run the app
+| Deduction Type      | F1 (OPT/STEM) | H1B      |
+|---------------------|---------------|----------|
+| Federal Tax         | 11.81%        | 11.81%   |
+| State Tax           | 4.79%         | 4.79%    |
+| SDI + PFL           | 1.05%         | 1.05%    |
+| Social Security     | ❌            | 6.20%    |
+| Medicare            | ❌            | 1.45%    |
 
-   ```
-   $ streamlit run streamlit_app.py
-   ```
+> F1 status does not include Social Security and Medicare deductions.
+
+
+## Notes
+
+* Assumes 24 pay periods (2 per month).
+* Meant for estimation only; actual deductions may vary.
