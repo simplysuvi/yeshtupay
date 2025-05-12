@@ -18,11 +18,14 @@ st.set_page_config(
 
 # ---- App Title ----
 st.title("Paycheck Estimator (NY)")
-st.caption("Estimate your gross and net paycheck based on visa status and annual salary.")
+st.caption("Estimate your gross and net paycheck based on visa status, salary, and benefits.")
 
 # ---- Inputs ----
 salary = st.number_input("Enter your annual salary ($):", min_value=40000, step=1000)
 status = st.radio("Select your visa status:", options=["F1 (OPT/STEM)", "H1B"])
+
+# New: Input for benefits/other deductions per paycheck
+custom_deductions = st.number_input("Enter other benefits/deductions per paycheck ($):", min_value=0.0, step=5.0)
 
 # ---- Gross Pay Calculation ----
 biweekly_gross = salary / 24  # 24 pay periods assumed (twice a month)
@@ -36,7 +39,11 @@ if status == "F1 (OPT/STEM)":
     deductions["medicare"] = 0
 
 deduction_values = {k: (v / 100) * biweekly_gross for k, v in deductions.items()}
-total_deductions = sum(deduction_values.values())
+total_tax_deductions = sum(deduction_values.values())
+
+# Add custom benefits/other deductions
+total_deductions = total_tax_deductions + custom_deductions
+
 net_biweekly = biweekly_gross - total_deductions
 net_monthly = net_biweekly * 2
 net_yearly = net_monthly * 12
@@ -59,3 +66,4 @@ st.write(f"**:green[Net]:** ${net_yearly:,.2f}")
 st.subheader("Deductions Per Paycheck")
 for k, v in deduction_values.items():
     st.write(f"- **{k.replace('_', ' ').title()}**: ${v:.2f} ({TAX_RATES[k]}%)")
+st.write(f"- **Other Deductions (Benefits etc.)**: ${custom_deductions:.2f}")
