@@ -17,8 +17,8 @@ st.set_page_config(
 )
 
 # ---- App Title ----
-st.title("Paycheck Estimator")
-st.caption("Estimate your gross and net paycheck based on visa status and salary.")
+st.title("Paycheck Estimator (NY)")
+st.caption("Estimate your gross and net paycheck based on visa status and annual salary.")
 
 # ---- Inputs ----
 salary = st.number_input("Enter your annual salary ($):", min_value=40000, step=1000)
