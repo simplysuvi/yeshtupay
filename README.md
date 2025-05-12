@@ -21,8 +21,8 @@ This app uses higher-end estimates for deduction percentages:
 | Federal Tax         | 11.81%        | 11.81%   |
 | State Tax           | 4.79%         | 4.79%    |
 | SDI + PFL           | 1.05%         | 1.05%    |
-| Social Security     | ❌            | 6.20%    |
-| Medicare            | ❌            | 1.45%    |
+| Social Security     | N/A            | 6.20%    |
+| Medicare            | N/A            | 1.45%    |
 
 > F1 status does not include Social Security and Medicare deductions.
 
