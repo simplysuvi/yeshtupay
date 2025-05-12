@@ -21,7 +21,7 @@ st.title("Paycheck Estimator")
 st.caption("Estimate your gross and net paycheck based on visa status and salary.")
 
 # ---- Inputs ----
-salary = st.number_input("Enter your annual salary ($):", min_value=40000, step=1000, value=80000)
+salary = st.number_input("Enter your annual salary ($):", min_value=40000, step=1000, value=60000)
 status = st.radio("Select your visa status:", options=["F1 (OPT/STEM)", "H1B"])
 
 # ---- Gross Pay Calculation ----
